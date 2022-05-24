@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Day of Week (0=Monday)" placeholder="Day of Week (0=Monday)" required="required" />
+        <input type="text" name="Booked and Close Date Difference" placeholder="Booked and Close Date Difference" required="required" />
+		<input type="text" name="No. of Pros Booked" placeholder="No. of Pros Booked" required="required" />
+        <input type="text" name="Book Total Time" placeholder="Book Total Time" required="required" />
+        <input type="text" name="Total Actual Time" placeholder="Total Actual Time" required="required" />
+		<input type="text" name="Actual and Booked Time Difference" placeholder="Actual and Booked Time Difference" required="required" />
+        <input type="text" name="Delay in Actual Start" placeholder="Delay in Actual Start" required="required" />
+        <input type="text" name="Partner B? (1=Yes, 0=No)" placeholder="Partner B? (1=Yes, 0=No)" required="required" />
+		<input type="text" name="Partner C? (1=Yes, 0=No)" placeholder="Partner C? (1=Yes, 0=No)" required="required" />
+        <input type="text" name="Order Status? (1=Completed, 0=Cancelled)" placeholder="Order Status? (1=Completed, 0=Cancelled)" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
